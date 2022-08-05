@@ -3,6 +3,10 @@ package Banking;
 public class Account {
 	int balance;
 	
+	Account(int balance){
+		this.balance = balance;
+	}
+	
 	void withdraw(int a) {
 		balance = balance - a;
 		System.out.println("Total balance: " + balance);
@@ -14,19 +18,26 @@ public class Account {
 	}
 	
 	public static void main(String[] args) {
-		Account acc1 = new Account();
+		Account acc1 = new SavingsAccount(100);
 		acc1.deposit(100);
 	    acc1.withdraw(5);
 	    
-	    SavingsAccount acc2 = new SavingsAccount();
-	    acc2.balance = 100;
-	    acc2.ROI = 0.325;
-	    acc2.calculateInterest();
+	    Account acc2 = new currentAccount(100);
+	    
 	}
 }
 
 class SavingsAccount extends Account{
+	
 	double ROI;
+	
+	SavingsAccount(int balance) {
+		super(balance);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
 	
 	void calculateInterest() {
 		double total = balance * ROI;
@@ -36,4 +47,8 @@ class SavingsAccount extends Account{
 
 class currentAccount extends Account{
 	int overDraft;
+	
+	currentAccount(int balance){
+		super(balance);
+	}
 }
