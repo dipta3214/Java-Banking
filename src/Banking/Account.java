@@ -24,6 +24,15 @@ public class Account {
 	    
 	    Account acc2 = new currentAccount(100);
 	    
+	    
+	    Account[] arrayOfObjects = new Account[3];
+	    arrayOfObjects[0] = acc1;
+	    arrayOfObjects[1] = acc2;
+	    arrayOfObjects[2] = new SavingsAccount(500);
+	    
+	    for(int i = 0; i < arrayOfObjects.length; i++) {
+	    	System.out.println(arrayOfObjects[i]);
+	    }
 	}
 }
 
